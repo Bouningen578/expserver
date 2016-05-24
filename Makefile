@@ -11,7 +11,7 @@ INCLUDES = $(addprefix $(INCLUDEDIR)/, $(HEADERS:.c=.o))
 $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) $^ -o $@
 
-$(OBJDIR)/%.o:%.c $(INCLUDES)
+$(OBJDIR)/%.o: %.c $(INCLUDES)
 	@[ -d $(OBJDIR) ]
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -19,3 +19,5 @@ all: clean $(TARGET)
 	
 clean:
 	rm -f $(OBJECTS) $(TARGET)
+
+
