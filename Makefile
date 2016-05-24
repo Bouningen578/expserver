@@ -1,9 +1,18 @@
 CC=gcc
 VPATH = src
-CFLAGS = -Iinclude -Wall --pedantic-errors
+CFLAGS = -Iinclude -Wall --pedantic-errors -O2
 TARGET = expserver
-$(TARGET): main.o exp1.o
+OBJDIR = ./obj
+SOURCES = main.c exp1.c
+OBJECTS = $(addprefix $(OBJDIR)/, $(SOURCES:.c=.o))
+$(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) $^ -o $@
 
-.c.o:
-	$(CC) $(CFLAGS) -c $<
+$(OBJDIR)/%.o:%.c
+	@[ -d $(OBJDIR) ]
+	$(CC) $(CFLAGS) -c $< -o $@
+
+all: clean $(TARGET)
+	
+clean:
+	rm -f $(OBJECTS) $(TARGET)
