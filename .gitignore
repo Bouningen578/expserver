@@ -1,5 +1,6 @@
-DS_Store
+.DS_Store
 include/portnum.h
+expserver
 # Object files
 *.o
 *.ko
