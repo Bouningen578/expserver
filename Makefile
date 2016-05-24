@@ -1,4 +1,9 @@
+CC=gcc
 VPATH = src
-CPPFLAGS = -I include
-main: main.c
+CFLAGS = -Iinclude -Wall --pedantic-errors
+TARGET = expserver
+$(TARGET): main.o exp1.o
 	$(CC) $(CFLAGS) $^ -o $@
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<
