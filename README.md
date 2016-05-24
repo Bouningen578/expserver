@@ -1,5 +1,3 @@
-# expserver
+# How to use
 
-## How to use
-
-\#include "header/exp1.h" 
+\#include "include/exp1.h" 
