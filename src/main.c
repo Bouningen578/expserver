@@ -1,5 +1,5 @@
-#include "include/exp1.h"
-#include "include/portnum.h"
+#include "exp1.h"
+#include "portnum.h"
 
 int main(int argc, char **argv)
 {
