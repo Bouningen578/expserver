@@ -1,9 +1,11 @@
-#include "header/exp1.h"
+#include "include/exp1.h"
+#include "include/portnum.h"
+
 int main(int argc, char **argv)
 {
   int sock_listen;
 
-  sock_listen = exp1_tcp_listen(14091);
+  sock_listen = exp1_tcp_listen(PORTNUM);
 
   while(1){
     struct sockaddr addr;
