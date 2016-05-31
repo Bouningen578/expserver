@@ -2,25 +2,25 @@
 
 int exp1_http_session(int sock)
 {
-	char buf[2048];
-	int recv_size = 0;
-	exp1_info_type info;
-	int ret = 0;
+  char buf[2048];
+  int recv_size = 0;
+  exp1_info_type info;
+  int ret = 0;
 
-	while(ret == 0){
-		int size = recv(sock, buf + recv_size, 2048, 0);
+  while(ret == 0){
+    int size = recv(sock, buf + recv_size, 2048, 0);
 
-		if(size == -1){
-			return -1;
-		}
+    if(size == -1){
+      return -1;
+    }
 
-		recv_size += size;
-		ret = exp1_parse_header(buf, recv_size, &info);
-	}
+    recv_size += size;
+    ret = exp1_parse_header(buf, recv_size, &info);
+  }
 
-	exp1_http_reply(sock, &info);
+  exp1_http_reply(sock, &info);
 
-	return 0;
+  return 0;
 }
 
 int exp1_parse_header(char* buf, int size, exp1_info_type* info)
@@ -234,4 +234,3 @@ int exp1_tcp_listen(int port)
 
   return sock;
 }
-
