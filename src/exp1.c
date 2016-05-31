@@ -140,8 +140,7 @@ void exp1_http_reply(int sock, exp1_info_type *info)
 
   if(info->code == 404){
     exp1_send_404(sock);
-    fprintf(logfile, "404 not found %s\n", info->path);
-    fflush(logfile);
+    printf("404 not found %s\n", info->path);
     return;
   }
 
@@ -165,8 +164,7 @@ void exp1_send_404(int sock)
   int ret;
 
   sprintf(buf, "HTTP/1.0 404 Not Found\r\n\r\n");
-  fprintf(logfile, "%s", buf);
-  fflush(logfile);
+  printf("%s", buf);
   ret = send(sock, buf, strlen(buf), 0);
 
   if(ret < 0){
