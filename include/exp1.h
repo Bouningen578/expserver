@@ -41,3 +41,5 @@ void exp1_parse_status(char* status, exp1_info_type *pinfo);
 int exp1_parse_header(char* buf, int size, exp1_info_type* info);
 int exp1_http_session(int sock);
 int exp1_tcp_listen(int port);
+
+FILE * logfile;
